@@ -4,12 +4,7 @@
     aria-label="Main navigation"
   >
     <!-- Logo -->
-    <a
-      routerLink="/"
-      class="text-xl font-bold tracking-tight text-[#164E63]"
-    >
-      DevTrace
-    </a>
+    <a routerLink="/" class="text-xl font-bold tracking-tight text-[#164E63]"> DevTrace </a>
 
     <!-- Desktop navigation -->
     <div class="hidden items-center gap-8 md:flex">
@@ -40,6 +35,12 @@
       >
         Experience
       </a>
+      <a
+        href="#Practice"
+        class="text-sm font-medium text-slate-600 transition-colors hover:text-[#164E63]"
+      >
+        Practice
+      </a>
 
       <a
         href="#contact"
@@ -53,9 +54,63 @@
     <button
       type="button"
       class="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden"
-      aria-label="Open navigation menu"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="isMenuOpen"
+      (click)="toggleMenu()"
     >
-      ☰
+      @if (isMenuOpen) {
+        ✕
+      } @else {
+        ☰
+      }
     </button>
   </nav>
+  @if (isMenuOpen) {
+    <div class="border-t border-slate-200 bg-white md:hidden">
+      <div class="mx-auto flex max-w-7xl flex-col px-6 py-4">
+        <a
+          href="#about"
+          class="border-b border-slate-100 py-4 text-sm font-medium text-slate-600"
+          (click)="closeMenu()"
+        >
+          About
+        </a>
+
+        <a
+          href="#skills"
+          class="border-b border-slate-100 py-4 text-sm font-medium text-slate-600"
+          (click)="closeMenu()"
+        >
+          Skills
+        </a>
+
+        <a
+          href="#projects"
+          class="border-b border-slate-100 py-4 text-sm font-medium text-slate-600"
+          (click)="closeMenu()"
+        >
+          Projects
+        </a>
+
+        <a
+          href="#experience"
+          class="border-b border-slate-100 py-4 text-sm font-medium text-slate-600"
+          (click)="closeMenu()"
+        >
+          Experience
+        </a>
+        <a
+          href="#Practice"
+          class="border-b border-slate-100 py-4 text-sm font-medium text-slate-600"
+          (click)="closeMenu()"
+        >
+          Practice
+        </a>
+
+        <a href="#contact" class="py-4 text-sm font-medium text-slate-600" (click)="closeMenu()">
+          Contact
+        </a>
+      </div>
+    </div>
+  }
 </header>

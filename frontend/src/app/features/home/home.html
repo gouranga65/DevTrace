@@ -1,73 +1,546 @@
 <div class="min-h-screen bg-white">
   <!-- Navigation -->
-  <header >
+  <header>
     <app-navbar></app-navbar>
   </header>
 
   <!-- Hero -->
-  <section class="mx-auto flex min-h-[calc(100vh-81px)] max-w-7xl items-center px-6 py-20">
-    <div class="max-w-4xl">
-      <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">
-        Software Developer
-      </p>
+  <section class="mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-6 py-20">
+    <div class="grid w-full items-center gap-16 lg:grid-cols-[1.2fr_0.8fr]">
+      <!-- Hero content -->
+      <div>
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">
+          Software Developer
+        </p>
 
-      <h1 class="text-5xl font-bold leading-tight tracking-tight text-[#164E63] md:text-7xl">
-        I build software,
-        <span class="text-[#0F9D8A]">solve problems,</span>
-        and keep learning.
-      </h1>
-
-      <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-600">
-        Welcome to DevTrace — a living record of my projects, engineering experience, coding
-        practice, and technical journey.
-      </p>
-
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          routerLink="/projects"
-          class="rounded-lg bg-[#164E63] px-6 py-3 font-medium text-white transition hover:bg-[#0F9D8A]"
+        <h1
+          class="max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-[#164E63] sm:text-6xl lg:text-7xl"
         >
-          View Projects
-        </a>
+          I build software,
+          <span class="text-[#0F9D8A]">solve problems,</span>
+          and keep learning.
+        </h1>
 
-        <a
-          href="#contact"
-          class="rounded-lg border border-slate-300 px-6 py-3 font-medium text-slate-700 transition hover:border-[#164E63] hover:text-[#164E63]"
+        <p class="mt-8 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+          I'm a software developer focused on building reliable, maintainable applications and
+          continuously improving my engineering skills.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            routerLink="/projects"
+            class="rounded-lg bg-[#164E63] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0F9D8A]"
+          >
+            View Projects
+          </a>
+
+          <a
+            href="#contact"
+            class="rounded-lg border border-slate-300 px-6 py-3 font-medium text-slate-700 transition-colors hover:border-[#164E63] hover:text-[#164E63]"
+          >
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual placeholder -->
+      <div class="hidden lg:flex lg:justify-end">
+        <div
+          class="flex h-80 w-80 items-center justify-center rounded-3xl border border-slate-200 bg-slate-50"
         >
-          Contact Me
-        </a>
+          <span class="text-sm text-slate-400"> Visual goes here </span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Temporary sections -->
-  <section id="about" class="min-h-[400px] px-6 py-24">
+  <section id="about" class="bg-slate-50 px-6 py-24 sm:py-32">
     <div class="mx-auto max-w-7xl">
-      <h2 class="text-3xl font-bold text-[#164E63]">About</h2>
+      <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+        <!-- Section heading -->
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">About</p>
+
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-[#164E63] sm:text-4xl">
+            A developer who likes understanding how things work.
+          </h2>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6 text-base leading-8 text-slate-600 sm:text-lg">
+          <p>
+            I'm a software developer who enjoys turning ideas into practical, maintainable
+            applications. I like working across the frontend and backend and understanding how the
+            pieces fit together.
+          </p>
+
+          <p>
+            My current focus is strengthening my skills in CAPM, SAP BTP , Node.js, FIORI,
+            databases, and modern software architecture.
+          </p>
+
+          <p>
+            DevTrace is part portfolio and part engineering playground — a place to document the
+            projects I build, the problems I solve, and the technologies I learn along the way.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="skills" class="min-h-[400px] bg-slate-50 px-6 py-24">
+  <section id="skills" class="px-6 py-24 sm:py-32">
     <div class="mx-auto max-w-7xl">
-      <h2 class="text-3xl font-bold text-[#164E63]">Skills</h2>
+      <!-- Section heading -->
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">Skills</p>
+
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[#164E63] sm:text-4xl">
+          Technologies I use to build things.
+        </h2>
+
+        <p class="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+          A practical toolkit built through projects, professional work, and continuous learning.
+        </p>
+      </div>
+
+      <!-- Skill categories -->
+      <div class="mt-14 grid gap-6 md:grid-cols-2">
+        @for (category of skillCategories; track category.title) {
+          <article
+            class="rounded-2xl border border-slate-200 bg-white p-7 transition-shadow hover:shadow-md"
+          >
+            <h3 class="text-xl font-semibold text-[#164E63]">
+              {{ category.title }}
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              {{ category.description }}
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              @for (skill of category.skills; track skill) {
+                <span
+                  class="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700"
+                >
+                  {{ skill }}
+                </span>
+              }
+            </div>
+          </article>
+        }
+      </div>
     </div>
   </section>
 
-  <section id="projects" class="min-h-[400px] px-6 py-24">
+  <section id="projects" class="bg-slate-50 px-6 py-24 sm:py-32">
     <div class="mx-auto max-w-7xl">
-      <h2 class="text-3xl font-bold text-[#164E63]">Projects</h2>
+      <!-- Section heading -->
+      <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">
+            Featured Projects
+          </p>
+
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-[#164E63] sm:text-4xl">
+            Things I've built.
+          </h2>
+
+          <p class="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+            Projects where I've applied what I've learned to solve practical problems and explore
+            new technologies.
+          </p>
+        </div>
+
+        <a routerLink="/projects" class="shrink-0 font-medium text-[#164E63] hover:text-[#0F9D8A]">
+          View all projects →
+        </a>
+      </div>
+
+      <!-- Project cards -->
+      <div class="mt-14 grid gap-6 lg:grid-cols-3">
+        @for (project of projects; track project.slug) {
+          <article
+            class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <!-- Project visual placeholder -->
+            <div class="flex h-48 items-center justify-center bg-[#164E63]">
+              <span class="text-sm font-medium text-white/70">
+                {{ project.title }}
+              </span>
+            </div>
+
+            <!-- Project content -->
+            <div class="flex flex-1 flex-col p-7">
+              <div class="flex items-start justify-between gap-4">
+                <h3 class="text-xl font-semibold text-[#164E63]">
+                  {{ project.title }}
+                </h3>
+
+                <span
+                  class="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600"
+                >
+                  {{ project.status }}
+                </span>
+              </div>
+
+              <p class="mt-4 text-sm leading-6 text-slate-600">
+                {{ project.description }}
+              </p>
+
+              <!-- Technologies -->
+              <div class="mt-6 flex flex-wrap gap-2">
+                @for (technology of project.technologies; track technology) {
+                  <span
+                    class="rounded-full bg-[#E6F4F1] px-3 py-1 text-xs font-medium text-[#164E63]"
+                  >
+                    {{ technology }}
+                  </span>
+                }
+              </div>
+
+              <!-- Project link -->
+              <div class="mt-auto pt-7">
+                <a
+                  [routerLink]="['/projects', project.slug]"
+                  class="font-medium text-[#164E63] transition-colors group-hover:text-[#0F9D8A]"
+                >
+                  View project →
+                </a>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
     </div>
   </section>
 
-  <section id="experience" class="min-h-[400px] bg-slate-50 px-6 py-24">
+  <section id="experience" class="bg-slate-50 px-6 py-24 sm:py-32">
     <div class="mx-auto max-w-7xl">
-      <h2 class="text-3xl font-bold text-[#164E63]">Experience</h2>
-    </div>
-  </section>
+      <!-- Heading -->
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">Experience</p>
 
-  <section id="contact" class="min-h-[400px] px-6 py-24">
-    <div class="mx-auto max-w-7xl">
-      <h2 class="text-3xl font-bold text-[#164E63]">Contact</h2>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[#164E63] sm:text-4xl">
+          Where I've been building software.
+        </h2>
+
+        <p class="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+          A timeline of my professional experience and the work I've contributed to along the way.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="mt-14">
+        @for (experience of experiences; track experience.company + experience.period) {
+          <article class="relative pl-8 sm:pl-12">
+            <!-- Timeline line -->
+            <div
+              class="absolute left-[7px] top-3 h-full w-px bg-slate-300 sm:left-[11px]"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Timeline dot -->
+            <div
+              class="absolute left-0 top-2 h-4 w-4 rounded-full border-4 border-slate-50 bg-[#0F9D8A] sm:left-1"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Experience content -->
+            <div class="pb-16 last:pb-0">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold text-[#164E63]">
+                    {{ experience.role }}
+                  </h3>
+
+                  <p class="mt-1 font-medium text-[#0F9D8A]">
+                    {{ experience.company }}
+                  </p>
+                </div>
+
+                <span class="text-sm font-medium text-slate-500">
+                  {{ experience.period }}
+                </span>
+              </div>
+
+              <p class="mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
+                {{ experience.description }}
+              </p>
+
+              <ul class="mt-5 max-w-3xl space-y-3">
+                @for (responsibility of experience.responsibilities; track responsibility) {
+                  <li class="flex gap-3 text-sm leading-6 text-slate-600 sm:text-base">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F9D8A]"></span>
+
+                    <span>
+                      {{ responsibility }}
+                    </span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </article>
+        }
+      </div>
     </div>
   </section>
+  <section id="Practice" class="px-6 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl">
+      <!-- Heading -->
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">
+          Coding Practice
+        </p>
+
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-[#164E63] sm:text-4xl">
+          Learning by solving problems.
+        </h2>
+
+        <p class="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
+          I use coding platforms to practice algorithms, data structures, problem solving, and
+          programming fundamentals.
+        </p>
+      </div>
+
+      <!-- Profiles -->
+      <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        @for (profile of codingProfiles; track profile.platform) {
+          <article
+            class="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#0F9D8A] hover:shadow-md"
+          >
+            <!-- Platform -->
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#E6F4F1] text-lg font-bold text-[#164E63]"
+              aria-hidden="true"
+            >
+              {{ profile.platform.charAt(0) }}
+            </div>
+
+            <h3 class="mt-6 text-lg font-semibold text-[#164E63]">
+              {{ profile.platform }}
+            </h3>
+
+            <p class="mt-2 text-sm font-medium text-[#0F9D8A]">
+              {{ profile.username }}
+            </p>
+
+            <p class="mt-4 flex-1 text-sm leading-6 text-slate-600">
+              {{ profile.description }}
+            </p>
+
+            <a
+              [href]="profile.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 font-medium text-[#164E63] transition-colors hover:text-[#0F9D8A]"
+            >
+              View profile →
+            </a>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="bg-slate-50 px-6 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <!-- Contact information -->
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#0F9D8A]">Contact</p>
+
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-[#164E63] sm:text-4xl">
+            Let's build something.
+          </h2>
+
+          <p class="mt-6 max-w-lg text-base leading-7 text-slate-600 sm:text-lg">
+            Have a project idea, technical question, or just want to connect? Send me a message and
+            I'll get back to you.
+          </p>
+
+          <div class="mt-10 space-y-5">
+            <a
+              href="mailto:your-email@example.com"
+              class="flex items-center gap-4 text-slate-600 transition-colors hover:text-[#164E63]"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-[#164E63]"
+              >
+                @
+              </span>
+
+              <span>your-email@example.com</span>
+            </a>
+
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 text-slate-600 transition-colors hover:text-[#164E63]"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-[#164E63]"
+              >
+                GH
+              </span>
+
+              <span>GitHub</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-4 text-slate-600 transition-colors hover:text-[#164E63]"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-[#164E63]"
+              >
+                in
+              </span>
+
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="submitContactForm()"
+          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+        >
+          <!-- Name -->
+          <div>
+            <label for="name" class="text-sm font-medium text-slate-700"> Name </label>
+
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              placeholder="Your name"
+              class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-[#0F9D8A] focus:ring-2 focus:ring-[#0F9D8A]/20"
+            />
+
+            @if (contactForm.controls.name.touched && contactForm.controls.name.invalid) {
+              <p class="mt-2 text-sm text-red-600">Please enter your name.</p>
+            }
+          </div>
+
+          <!-- Email -->
+          <div class="mt-6">
+            <label for="email" class="text-sm font-medium text-slate-700"> Email </label>
+
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-[#0F9D8A] focus:ring-2 focus:ring-[#0F9D8A]/20"
+            />
+
+            @if (contactForm.controls.email.touched && contactForm.controls.email.invalid) {
+              <p class="mt-2 text-sm text-red-600">Please enter a valid email address.</p>
+            }
+          </div>
+
+          <!-- Subject -->
+          <div class="mt-6">
+            <label for="subject" class="text-sm font-medium text-slate-700"> Subject </label>
+
+            <input
+              id="subject"
+              type="text"
+              formControlName="subject"
+              placeholder="What would you like to discuss?"
+              class="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-[#0F9D8A] focus:ring-2 focus:ring-[#0F9D8A]/20"
+            />
+
+            @if (contactForm.controls.subject.touched && contactForm.controls.subject.invalid) {
+              <p class="mt-2 text-sm text-red-600">Please enter a subject.</p>
+            }
+          </div>
+
+          <!-- Message -->
+          <div class="mt-6">
+            <label for="message" class="text-sm font-medium text-slate-700"> Message </label>
+
+            <textarea
+              id="message"
+              rows="6"
+              formControlName="message"
+              placeholder="Tell me what you're working on..."
+              class="mt-2 w-full resize-y rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-[#0F9D8A] focus:ring-2 focus:ring-[#0F9D8A]/20"
+            ></textarea>
+
+            @if (contactForm.controls.message.touched && contactForm.controls.message.invalid) {
+              <p class="mt-2 text-sm text-red-600">Message must be at least 10 characters.</p>
+            }
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="mt-8 w-full rounded-lg bg-[#164E63] px-6 py-3 font-medium text-white transition-colors hover:bg-[#0F9D8A]"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer class="border-t border-slate-200 bg-white">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div>
+        <p class="font-semibold text-[#164E63]">DevTrace</p>
+
+        <p class="mt-1 text-sm text-slate-500">Built with Angular, Node.js & curiosity.</p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a
+          href="https://github.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-slate-500 transition-colors hover:text-[#164E63]"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-slate-500 transition-colors hover:text-[#164E63]"
+        >
+          LinkedIn
+        </a>
+
+        <a href="#" class="text-sm text-slate-500 transition-colors hover:text-[#164E63]">
+          Privacy
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-100 px-6 py-4 text-center">
+      <p class="text-xs text-slate-400">© 2026 DevTrace. All rights reserved.</p>
+    </div>
+  </footer>
+  @if (isBackToTopVisible) {
+    <button
+      type="button"
+      (click)="scrollToTop()"
+      aria-label="Back to top"
+      class="fixed bottom-5 right-5 z-[9999] flex h-12 w-12 items-center justify-center rounded-full bg-[#164E63] text-2xl text-white shadow-lg transition-all duration-300 hover:bg-[#0F9D8A] active:scale-95"
+      [class.opacity-0]="!isBackToTopVisible"
+      [class.pointer-events-none]="!isBackToTopVisible"
+      [class.translate-y-4]="!isBackToTopVisible"
+      [class.opacity-100]="isBackToTopVisible"
+      [class.translate-y-0]="isBackToTopVisible"
+    >
+      ↑
+    </button>
+  }
 </div>
